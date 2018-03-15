@@ -1,5 +1,15 @@
 <h1>Cocktails</h1>
 
+<table>
+  <tbody>
+    <tr>
 <% @cocktails.each do |cocktail| %>
-<%= cocktail.name %>
+<strong>
+<td><%= cocktail.name %> </td>
+</strong>
+ <td>  <%= link_to 'Show', cocktail_path(cocktail) %>  </td>
 <% end %>
+
+<%= link_to "Create new", new_cocktail_path %>
+
+
