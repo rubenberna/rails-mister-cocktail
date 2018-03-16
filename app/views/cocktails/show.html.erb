@@ -1,5 +1,5 @@
 <h1>
-<%= @cocktail.name %>
+  <%= @cocktail.name %>
 </h1>
 
 <table>
@@ -9,15 +9,15 @@
   </thead>
   <tbody>
     <tr>
-  <% @cocktail.doses.each do |dose|%>
-   <td> <%= dose.ingredient.name %> </td>
-   <td> <%= dose.description %> </td>
-  <% end %>
-  </tr>
+      <% @cocktail.doses.each do |dose|%>
+      <td> <%= dose.ingredient.name %> </td>
+      <td> <%= dose.description %> </td>
+      <% end %>
+    </tr>
   </tbody>
-  </table>
+</table>
 
-  <%= simple_form_for[@cocktail, @dose] do |f| %>
+<%= simple_form_for([@cocktail, @dose]) do |f| %>
 <%=f.input :description %>
 <%= f.association :ingredient %>
 <%=f.submit 'Create', class: 'btn btn-primary' %>
