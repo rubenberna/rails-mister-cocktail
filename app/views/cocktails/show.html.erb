@@ -12,16 +12,13 @@
       <% @cocktail.doses.each do |dose|%>
       <td> <%= dose.ingredient.name %> </td>
       <td> <%= dose.description %> </td>
+      <td> <%= link_to "Remove", dose_path(dose),
+      method: :delete,
+      data: { confirm: "Don't!! \n Ok, go ahead" }%> </td>
       <% end %>
+      <%= link_to "Add ingredient", new_cocktail_dose_path(@cocktail) %>
     </tr>
   </tbody>
 </table>
-
-<%= simple_form_for([@cocktail, @dose]) do |f| %>
-<%=f.input :description %>
-<%= f.association :ingredient %>
-<%=f.submit 'Create', class: 'btn btn-primary' %>
-<% end %>
-
 
 <%= link_to "Home", cocktails_path %>
